@@ -58,8 +58,7 @@ This project is a **real-time face recognition system** that uses the **K-Neares
    * Each face is cropped, resized, and passed to KNN.
    * The predicted name is displayed on screen.
 
----
-Sure! Here’s the complete `README.md` content you can copy directly:  
+---  
 
 ```markdown
 # Face Recognition using KNN
