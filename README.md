@@ -1,5 +1,4 @@
 # face-recognition
-Perfect 🚀 Here’s a clean **README.md** draft you can directly use for your GitHub repo:
 
 ---
 
