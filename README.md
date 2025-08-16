@@ -59,10 +59,75 @@ This project is a **real-time face recognition system** that uses the **K-Neares
    * The predicted name is displayed on screen.
 
 ---
+Sure! Here’s the complete `README.md` content you can copy directly:  
 
-###  Run Real-time Recognition
+```markdown
+# Face Recognition using KNN
 
-Press **`q`** to quit the camera window.
+This project implements a simple real-time face recognition system using **OpenCV** and **K-Nearest Neighbors (KNN)**.
+
+---
+
+## 🔹 Steps to Run the Project
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/GauravSingh0248/face-recognition.git
+cd face-recognition/FaceRecognition_KNN
+```
+
+### 2. Create Virtual Environment (Recommended)
+```bash
+python -m venv venv
+# Activate the virtual environment
+# Linux/Mac
+source venv/bin/activate
+# Windows
+venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+> If you don’t have a `requirements.txt` yet, create one with:
+```bash
+pip freeze > requirements.txt
+```
+
+**Likely required packages:**
+- numpy  
+- opencv-python  
+- matplotlib  
+
+### 4. Collect Training Data (Faces)
+Run the script to capture face data:
+```bash
+python face_data_collect.py
+```
+- A webcam window will open.  
+- Enter your name/ID when prompted.  
+- Press `q` to stop capturing.  
+- Data will be saved in the `data/` folder.
+
+### 5. Train & Test Recognition with KNN
+Run the recognition script:
+```bash
+python face_recognition_knn.py
+```
+- The webcam will open.  
+- It will recognize faces in real-time using the KNN classifier.  
+- Press `q` to exit.
+
+---
+
+## 🔹 Notes
+- Ensure your webcam works properly.  
+- You can add multiple users by running `face_data_collect.py` for each user.  
+- The `.npy` files in the `data/` folder are your training datasets.  
+- Recognition is real-time using **OpenCV + KNN**.
+```  
 
 ---
 
