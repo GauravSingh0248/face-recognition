@@ -60,25 +60,7 @@ This project is a **real-time face recognition system** that uses the **K-Neares
 
 ---
 
-## ▶️ Usage
-
-### 1️⃣ Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 2️⃣ Run Training Script (prepare dataset)
-
-```bash
-python train.py
-```
-
-### 3️⃣ Run Real-time Recognition
-
-```bash
-python recognize.py
-```
+###  Run Real-time Recognition
 
 Press **`q`** to quit the camera window.
 
