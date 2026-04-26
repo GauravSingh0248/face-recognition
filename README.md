@@ -2,7 +2,7 @@
 
 A real-time computer vision project that detects and recognizes faces from a webcam feed using OpenCV and a custom K-Nearest Neighbors (KNN) classifier.
 
-## Resume-Ready Title
+## Title
 
 **Real-Time Face Recognition System (OpenCV + KNN)**
 
