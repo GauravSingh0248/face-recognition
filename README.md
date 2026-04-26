@@ -1,166 +1,61 @@
-# face-recognition
+# Real-Time Face Recognition using KNN and OpenCV
 
----
+A real-time computer vision project that detects and recognizes faces from a webcam feed using OpenCV and a custom K-Nearest Neighbors (KNN) classifier.
 
-# 👤 Face Recognition using KNN & OpenCV
+## Resume-Ready Title
 
-This project is a **real-time face recognition system** that uses the **K-Nearest Neighbors (KNN)** algorithm and **OpenCV**. It detects faces from a webcam feed, classifies them based on stored training data, and displays the predicted name in real time.
+**Real-Time Face Recognition System (OpenCV + KNN)**
 
----
+## Key Highlights
 
-## 📌 Features
+- Built an end-to-end face recognition pipeline from data collection to live prediction.
+- Implemented KNN classification logic from scratch (without scikit-learn).
+- Used Haar Cascade-based face detection for real-time webcam inference.
+- Designed a simple extensible dataset workflow using `.npy` files per identity.
 
-* ✅ **Face Detection** using OpenCV’s Haar Cascade.
-* ✅ **Face Recognition** with KNN implemented **from scratch** (no scikit-learn).
-* ✅ **Real-time Webcam Prediction** with bounding boxes and labels.
-* ✅ **Easily Extendable Dataset** – add new people by storing their face data as `.npy` files.
+## Tech Stack
 
----
+- Python
+- NumPy
+- OpenCV
+- KNN (custom implementation)
 
-## 🛠️ Tech Stack
+## Project Structure
 
-* **Python 3.x**
-* **NumPy** → handling dataset & distance calculations.
-* **OpenCV** → face detection, image preprocessing, and real-time video capture.
-* **KNN (custom implementation)** → classification of faces.
+- `FaceRecognition_KNN/faceDataCollect.ipynb` - captures and stores face samples.
+- `FaceRecognition_KNN/faceRecognition.ipynb` - performs training and live recognition.
+- `FaceRecognition_KNN/K_Nearest_Neigbours_Classifications.ipynb` - KNN workflow notebook.
+- `FaceRecognition_KNN/haarcascade_frontalface_alt.xml` - face detection model.
+- `requirements.txt` - Python dependencies.
 
+## How It Works
 
----
+1. Collect face samples from webcam input and store them as `.npy` files.
+2. Load and flatten face arrays to build feature matrix (`X`) and label vector (`y`).
+3. Predict identity using nearest-neighbor voting on Euclidean distance.
+4. Display live webcam frames with bounding boxes and predicted names.
 
-## 🚀 How it Works
+## Setup
 
-1. **Dataset Creation**
-
-   * Each person’s face images are stored as a `.npy` file.
-   * Example: `AnvikaNegi.npy` → contains all face images of Anvika.
-   * The dataset loader maps numeric IDs → names.
-
-2. **Training (Data Preparation)**
-
-   * `.npy` files are loaded and concatenated into:
-
-     * `X` → feature matrix of flattened face images.
-     * `y` → labels (numeric IDs for each person).
-
-3. **KNN Algorithm**
-
-   * For a new input face:
-
-     * Compute distance from all training images.
-     * Pick the top `k` nearest neighbors.
-     * Assign the label by majority voting.
-
-4. **Real-time Prediction**
-
-   * Webcam captures a frame.
-   * OpenCV detects face regions.
-   * Each face is cropped, resized, and passed to KNN.
-   * The predicted name is displayed on screen.
-
----  
-
-```markdown
-# Face Recognition using KNN
-
-This project implements a simple real-time face recognition system using **OpenCV** and **K-Nearest Neighbors (KNN)**.
-
----
-
-## 🔹 Steps to Run the Project
-
-### 1. Clone the Repository
 ```bash
 git clone https://github.com/GauravSingh0248/face-recognition.git
-cd face-recognition/FaceRecognition_KNN
-```
-
-### 2. Create Virtual Environment (Recommended)
-```bash
+cd face-recognition
 python -m venv venv
-# Activate the virtual environment
-# Linux/Mac
-source venv/bin/activate
 # Windows
 venv\Scripts\activate
-```
-
-### 3. Install Dependencies
-```bash
 pip install -r requirements.txt
 ```
 
-> If you don’t have a `requirements.txt` yet, create one with:
-```bash
-pip freeze > requirements.txt
-```
+## Run
 
-**Likely required packages:**
-- numpy  
-- opencv-python  
-- matplotlib  
+Open and run notebooks in this order:
 
-### 4. Collect Training Data (Faces)
-Run the script to capture face data:
-```bash
-python face_data_collect.py
-```
-- A webcam window will open.  
-- Enter your name/ID when prompted.  
-- Press `q` to stop capturing.  
-- Data will be saved in the `data/` folder.
+1. `FaceRecognition_KNN/faceDataCollect.ipynb`
+2. `FaceRecognition_KNN/faceRecognition.ipynb`
 
-### 5. Train & Test Recognition with KNN
-Run the recognition script:
-```bash
-python face_recognition_knn.py
-```
-- The webcam will open.  
-- It will recognize faces in real-time using the KNN classifier.  
-- Press `q` to exit.
+## Future Enhancements
 
----
-
-## 🔹 Notes
-- Ensure your webcam works properly.  
-- You can add multiple users by running `face_data_collect.py` for each user.  
-- The `.npy` files in the `data/` folder are your training datasets.  
-- Recognition is real-time using **OpenCV + KNN**.
-```  
-
----
-
-## 📸 Example Output
-
-* **Dataset loading**
-
-```
-AnvikaNegi.npy (34, 30000)
-Gaurav.npy (55, 30000)
-(89, 30000)
-(89, 1)
-{0: 'AnvikaNegi', 1: 'Gaurav'}
-```
-
-* **Live Webcam Prediction**
-  Bounding box with predicted name:
-
-```
-[Face Detected] → Predicted: Gaurav
-```
-
----
-
-## 📌 Future Improvements
-
-* 🔹 Improve face detection using DNN or MTCNN.
-* 🔹 Add support for more robust classifiers (SVM, CNN).
-* 🔹 Store embeddings instead of raw pixel intensities for better accuracy.
-
----
-
-## 👨‍💻 Author
-
-Developed by **Gaurav Singh** ✨
-Contact -- officialgaurav0408@gmail.com
----
+- Improve detection robustness with DNN/MTCNN-based detectors.
+- Replace raw pixels with face embeddings for better accuracy.
+- Add model evaluation metrics and confusion matrix reporting.
 
